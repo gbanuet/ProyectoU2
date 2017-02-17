@@ -9,6 +9,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 /**
  *
@@ -18,6 +19,7 @@ public class Premio {
 
     private int clave;
     private String descripcion;
+    private ArrayList<Prueba>Competencia;
 
     public int getClave() {
         return clave;

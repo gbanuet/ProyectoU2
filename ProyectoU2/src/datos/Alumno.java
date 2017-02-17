@@ -22,6 +22,7 @@ public class Alumno {
     private String nombre;
     private String numControl;
     private Carrera miCArrera;
+    private Premio miPremio;
 
     public Carrera getMiCArrera() {
         return miCArrera;
@@ -58,7 +59,8 @@ public class Alumno {
             PrintWriter pw = new PrintWriter(bw);
 
             pw.print(nombre + ",");
-            pw.print(numControl);
+            pw.print(numControl+",");
+            pw.print(miCArrera);
             pw.println();
             bw.close();
             pw.close();

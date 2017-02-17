@@ -6,6 +6,7 @@
 package datos;
 
 import java.io.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -15,7 +16,9 @@ public class Carrera {
 
     private int clave;
     private String nombre;
-
+    private Carrera miCarrera;
+    private ArrayList<Premio> pruebas;
+    
     public int getClave() {
         return clave;
     }
@@ -52,5 +55,7 @@ public class Carrera {
         }
 
     }
+    
+   
 
 }
