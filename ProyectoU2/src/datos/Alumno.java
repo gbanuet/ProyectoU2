@@ -68,7 +68,7 @@ public class Alumno {
         }
 
     }
-
+//lee todos los estudiantes
     public ArrayList<Alumno> obtenerTodos() throws FileNotFoundException {
         ArrayList<Alumno> lista = new ArrayList();
         File f = new File("Alumno.txt");
