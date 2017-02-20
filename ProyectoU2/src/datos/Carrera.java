@@ -16,8 +16,7 @@ public class Carrera {
 
     private int clave;
     private String nombre;
-    private Carrera miCarrera;
-    private ArrayList<Premio> pruebas;
+  
     
     public int getClave() {
         return clave;
@@ -55,6 +54,12 @@ public class Carrera {
         }
 
     }
+    
+    @Override
+  public  String toString()
+  {
+      return this.nombre+","+this.clave;
+  }
     
    
 
