@@ -5,17 +5,35 @@
  */
 package vista;
 
+import datos.Alumno;
+import java.util.List;
+import java.util.ArrayList;
+import datos.TMAlumno;
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author tavos
  */
 public class ListaAlumnosVista extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ListaAlumnosVista
-     */
-    public ListaAlumnosVista() {
+  private List<Alumno> alumnos;
+  private TMAlumno modelo;
+    public ListaAlumnosVista() throws FileNotFoundException {
         initComponents();
+        
+        alumnos = new ArrayList<>();
+        
+        Alumno a  = new Alumno();
+        
+        alumnos= a.obtenerTodos();
+        
+        modelo = new TMAlumno(alumnos);
+        
+        TablaAlumnos.setModel(modelo);
+        
     }
 
     /**
@@ -28,12 +46,12 @@ public class ListaAlumnosVista extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TablaAlumnos = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TablaAlumnos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -44,7 +62,7 @@ public class ListaAlumnosVista extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(TablaAlumnos);
 
         jButton1.setText("Mostrar Alumnos");
 
@@ -104,14 +122,18 @@ public class ListaAlumnosVista extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ListaAlumnosVista().setVisible(true);
+                try {
+                    new ListaAlumnosVista().setVisible(true);
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(ListaAlumnosVista.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable TablaAlumnos;
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
