@@ -19,7 +19,7 @@ public class Premio {
 
     private int clave;
     private String descripcion;
-    private ArrayList<Prueba>Competencia;
+ 
 
     public int getClave() {
         return clave;

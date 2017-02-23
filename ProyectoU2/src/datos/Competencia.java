@@ -9,15 +9,25 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 /**
  *
  * @author Alumno
  */
 public class Competencia {
-
+    private String Nombre;
     private String descripcion;
     private int clave;
+    private ArrayList<Premio> premios;
+
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
+    }
 
     public String getDescripcion() {
         return descripcion;
@@ -43,8 +53,10 @@ public class Competencia {
             FileWriter fw = new FileWriter(f, true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw);
-            pw.print(descripcion + ",");
+            pw.print(Nombre + ",");
+            pw.print(descripcion+ ",");
             pw.print(clave);
+            
             pw.println();
             bw.close();
             pw.close();

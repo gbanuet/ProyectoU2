@@ -73,20 +73,30 @@ public class Alumno {
 //lee todos los estudiantes
     public ArrayList<Alumno> obtenerTodos() throws FileNotFoundException {
         ArrayList<Alumno> lista = new ArrayList();
-        File f = new File("Alumno.txt");
+        File f = new File("Alumnos.txt");
         if (f.exists()) {
             Scanner in = new Scanner(f);
-            in.useDelimiter(",\n");
-
+            in.useDelimiter("[,\n]");
+            
+            
             while (in.hasNext()) {
 
                 Alumno c = new Alumno();
+                Carrera carre = new Carrera();
 
-                String _numControl = in.next();
                 String _nombre = in.next();
+                String _numControl = in.next();
+                
+                String _nombrecarre =in.next();
+                
+                String _clavecarre= in.next();
 
                 c.setNombre(_nombre);
                 c.setNumControl(_numControl);
+                carre.setNombre(_nombrecarre);
+               // carre.setClave(Integer.parseInt(_clavecarre));
+                
+                lista.add(c);
 
             }
 
@@ -95,28 +105,9 @@ public class Alumno {
         return lista;
     }
 
-    public ArrayList<Alumno> obtenerCarrera() throws FileNotFoundException {
-        ArrayList<Alumno> lista = new ArrayList();
-        File f = new File("Alumno.txt");
-        if (f.exists()) {
-            Scanner in = new Scanner(f);
-            in.useDelimiter(",\n");
-
-            while (in.hasNext()) {
-
-                Alumno c = new Alumno();
-
-                String _numControl = in.next();
-                String _nombre = in.next();
-
-                c.setNombre(_nombre);
-                c.setNumControl(_numControl);
-                
-                lista.add(c);
-                
-            }
-
-        }
-        return lista;
+ 
+    @Override
+    public String toString(){
+        return this.nombre+" "+this.numControl+"\n";
     }
 }
