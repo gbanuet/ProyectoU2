@@ -108,6 +108,6 @@ public class Alumno {
  
     @Override
     public String toString(){
-        return this.nombre+" "+this.numControl+"\n";
+        return this.nombre+"\n";
     }
 }

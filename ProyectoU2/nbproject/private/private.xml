@@ -6,9 +6,11 @@
             <file>file:/C:/Users/tavos/OneDrive/Documentos/NetBeansProjects/ProyectoU2/ProyectoU2/src/vista/AsiganarGanadorCompetencia.java</file>
             <file>file:/C:/Users/tavos/OneDrive/Documentos/NetBeansProjects/ProyectoU2/ProyectoU2/src/datos/Alumno.java</file>
             <file>file:/C:/Users/tavos/OneDrive/Documentos/NetBeansProjects/ProyectoU2/ProyectoU2/src/vista/AlumnoVista.java</file>
+            <file>file:/C:/Users/tavos/OneDrive/Documentos/NetBeansProjects/ProyectoU2/ProyectoU2/src/datos/TMPremios.java</file>
             <file>file:/C:/Users/tavos/OneDrive/Documentos/NetBeansProjects/ProyectoU2/ProyectoU2/src/datos/Premio.java</file>
             <file>file:/C:/Users/tavos/OneDrive/Documentos/NetBeansProjects/ProyectoU2/ProyectoU2/src/datos/TMAlumno.java</file>
             <file>file:/C:/Users/tavos/OneDrive/Documentos/NetBeansProjects/ProyectoU2/ProyectoU2/src/vista/TopTenCompetencia.java</file>
+            <file>file:/C:/Users/tavos/OneDrive/Documentos/NetBeansProjects/ProyectoU2/ProyectoU2/src/vista/AsignarPremio.java</file>
             <file>file:/C:/Users/tavos/OneDrive/Documentos/NetBeansProjects/ProyectoU2/ProyectoU2/src/vista/VerListaPremios.java</file>
             <file>file:/C:/Users/tavos/OneDrive/Documentos/NetBeansProjects/ProyectoU2/ProyectoU2/src/datos/Competencia.java</file>
             <file>file:/C:/Users/tavos/OneDrive/Documentos/NetBeansProjects/ProyectoU2/ProyectoU2/src/vista/VentanaAsignarPremios.java</file>
@@ -16,6 +18,7 @@
             <file>file:/C:/Users/tavos/OneDrive/Documentos/NetBeansProjects/ProyectoU2/ProyectoU2/Alumnos.txt</file>
             <file>file:/C:/Users/tavos/OneDrive/Documentos/NetBeansProjects/ProyectoU2/ProyectoU2/src/vista/ListaAlumnosVista.java</file>
             <file>file:/C:/Users/tavos/OneDrive/Documentos/NetBeansProjects/ProyectoU2/ProyectoU2/src/vista/ConfigurarCompetencia.java</file>
+            <file>file:/C:/Users/tavos/OneDrive/Documentos/NetBeansProjects/ProyectoU2/ProyectoU2/src/datos/ModeloAlumno.java</file>
         </group>
     </open-files>
 </project-private>

@@ -7,6 +7,12 @@ package vista;
 
 import datos.Competencia;
 import datos.Premio;
+import datos.TMPremios;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -14,11 +20,27 @@ import datos.Premio;
  */
 public class ConfigurarCompetencia extends javax.swing.JFrame {
 
+    private List<Premio> premios;
+    private TMPremios modelopremios;
     /**
      * Creates new form ConfigurarCompetencia
      */
     public ConfigurarCompetencia() {
         initComponents();
+        
+        premios = new ArrayList<>();
+        
+        Premio p = new Premio(null, null);
+        
+        try {
+            premios= p.obtenerTodospremios();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ConfigurarCompetencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        modelopremios = new TMPremios(premios);
+        
+        tablapremios.setModel(modelopremios);
     }
 
     /**
@@ -42,7 +64,7 @@ public class ConfigurarCompetencia extends javax.swing.JFrame {
         txtclavecomp = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablapremios = new javax.swing.JTable();
         btnActualizar = new javax.swing.JButton();
         btnAgregarpremios = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
@@ -76,7 +98,7 @@ public class ConfigurarCompetencia extends javax.swing.JFrame {
 
         jLabel4.setText("Premios ");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablapremios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -87,7 +109,7 @@ public class ConfigurarCompetencia extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(jTable1);
+        jScrollPane3.setViewportView(tablapremios);
 
         btnActualizar.setText("Actualizar");
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -215,10 +237,9 @@ public class ConfigurarCompetencia extends javax.swing.JFrame {
 
     private void btnAgregarpremiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarpremiosActionPerformed
       
-        Premio p =new Premio();
+        Premio p =new Premio(txtclavepremio.getText(),txtdescripcionPremio.getText());
         
-        p.setClave(Integer.parseInt(txtclavepremio.getText()));
-        p.setDescripcion(txtclavecomp.getText());
+      
         
         p.guardarPremio();
         
@@ -232,13 +253,25 @@ public class ConfigurarCompetencia extends javax.swing.JFrame {
       
       comp.setNombre(txtNombreCompetencia.getText());
       comp.setDescripcion(txtdescripcioncomp.getText());
-      comp.setClave(Integer.parseInt(txtclavecomp.getText()));
+      comp.setClave(txtclavecomp.getText());
       
       comp.guardarCompetencia();
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        // TODO add your handling code here:
+  premios = new ArrayList<>();
+        
+        Premio p = new Premio(null, null);
+        
+        try {
+            premios= p.obtenerTodospremios();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ConfigurarCompetencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        modelopremios = new TMPremios(premios);
+        
+        tablapremios.setModel(modelopremios);        // TODO add your handling code here:
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void txtclavepremioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtclavepremioActionPerformed
@@ -294,9 +327,9 @@ public class ConfigurarCompetencia extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTable tablapremios;
     private javax.swing.JTextField txtNombreCompetencia;
     private javax.swing.JTextField txtclavecomp;
     private javax.swing.JTextField txtclavepremio;

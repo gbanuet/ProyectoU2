@@ -7,18 +7,21 @@ package datos;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
  * @author Alumno
  */
 public class Competencia {
+
     private String Nombre;
     private String descripcion;
-    private int clave;
+    private String clave;
     private ArrayList<Premio> premios;
 
     public String getNombre() {
@@ -37,11 +40,11 @@ public class Competencia {
         this.descripcion = descripcion;
     }
 
-    public int getClave() {
+    public String getClave() {
         return clave;
     }
 
-    public void setClave(int clave) {
+    public void setClave(String clave) {
         this.clave = clave;
     }
 
@@ -54,9 +57,9 @@ public class Competencia {
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw);
             pw.print(Nombre + ",");
-            pw.print(descripcion+ ",");
+            pw.print(descripcion + ",");
             pw.print(clave);
-            
+
             pw.println();
             bw.close();
             pw.close();
@@ -66,5 +69,37 @@ public class Competencia {
         }
 
     }
+
+    public ArrayList<Competencia> obtenercompetencias() throws FileNotFoundException {
+        ArrayList<Competencia> lista = new ArrayList();
+        File f = new File("Competencia.txt");
+        if (f.exists()) {
+            Scanner in = new Scanner(f);
+            in.useDelimiter("[,\n]");
+
+            while (in.hasNext()) {
+                Competencia c = new Competencia();
+                
+                  String temp;
+                String _Nombre = in.next();
+                String _descripcion = in.next();
+                 String _clave=in.next();
+                c.setDescripcion(_descripcion);
+                c.setNombre(_Nombre);
+                c.setClave(_clave);
+                lista.add(c);
+
+            }
+
+        }
+
+        return lista;
+    }
+
+    @Override
+    public String toString() {
+        return this.Nombre ; //To change body of generated methods, choose Tools | Templates.
+    }
+    
 
 }

@@ -7,9 +7,11 @@ package datos;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -17,15 +19,20 @@ import java.util.ArrayList;
  */
 public class Premio {
 
-    private int clave;
+    private String clave;
     private String descripcion;
+
+    public Premio(String clave, String descripcion) {
+        this.clave = clave;
+        this.descripcion = descripcion;
+    }
  
 
-    public int getClave() {
+    public String getClave() {
         return clave;
     }
 
-    public void setClave(int clave) {
+    public void setClave(String clave) {
         this.clave = clave;
     }
 
@@ -56,6 +63,30 @@ public class Premio {
             System.out.println("Error:" + e.getMessage());
         }
 
+    }
+    
+       public ArrayList<Premio> obtenerTodospremios() throws FileNotFoundException {
+        ArrayList<Premio> lista = new ArrayList();
+        File f = new File("Premio.txt");
+        if (f.exists()) {
+            Scanner in = new Scanner(f);
+            in.useDelimiter("[,\n]");
+            
+            
+            while (in.hasNext()) {
+
+               
+
+                
+               
+                
+              
+
+            }
+
+        }
+
+        return lista;
     }
 
 }
